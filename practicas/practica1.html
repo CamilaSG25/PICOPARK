@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Práctica 01 | PICOPARK</title>
+
+    <!-- Como estamos dentro de /practicas, usamos ../ -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/practica.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+    <header class="navbar">
+
+        <a href="../index.html" class="logo practice-logo">
+
+            <div class="logo-icon">P</div>
+
+            <div>
+                <h1>PICOPARK</h1>
+                <span>Tecnologías Emergentes</span>
+            </div>
+
+        </a>
+
+        <nav class="nav-links">
+            <a href="../index.html">Inicio</a>
+            <a href="../index.html#practicas" class="active">Prácticas</a>
+            <a href="../index.html#recursos">Recursos</a>
+            <a href="../index.html#equipo">Equipo</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- =========================
+             PORTADA DE LA PRÁCTICA
+        ========================== -->
+        <section class="practice-hero">
+
+            <div class="practice-hero-glow"></div>
+
+            <a href="../index.html#practicas" class="back-link">
+                ← Regresar a prácticas
+            </a>
+
+            <p class="practice-page-label">
+                PRÁCTICA 01 · REALIDAD VIRTUAL
+            </p>
+
+            <h1>
+                Primeros pasos en
+                <span>Unity & VR</span>
+            </h1>
+
+            <p class="practice-intro">
+                En esta práctica nos familiarizamos con el entorno de
+                desarrollo de Unity mediante la creación de un escenario
+                tridimensional y comenzamos el desarrollo de nuestro proyecto
+                final de realidad virtual.
+            </p>
+
+
+            <div class="practice-meta">
+
+                <div>
+                    <span>SOFTWARE</span>
+                    <strong>Unity · Blender</strong>
+                </div>
+
+                <div>
+                    <span>ÁREA</span>
+                    <strong>Realidad Virtual</strong>
+                </div>
+
+                <div>
+                    <span>ESTADO</span>
+                    <strong class="meta-complete">
+                        ● Completada
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             OBJETIVO
+        ========================== -->
+        <section class="practice-content">
+
+            <div class="practice-section-title">
+
+                <span>01</span>
+
+                <div>
+                    <p class="section-label">
+                        INTRODUCCIÓN
+                    </p>
+
+                    <h2>
+                        Objetivo de la práctica
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <div class="info-panel">
+
+                <p>
+                    El objetivo principal fue conocer las herramientas básicas
+                    de Unity para la construcción y organización de entornos
+                    tridimensionales orientados a experiencias de realidad
+                    virtual.
+                </p>
+
+                <p>
+                    Durante la práctica aprendimos a manipular objetos,
+                    modificar sus transformaciones y establecer relaciones
+                    jerárquicas entre ellos. Adicionalmente, realizamos un
+                    primer avance del proyecto final mediante el desarrollo
+                    inicial de un maniquí de RCP.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ACTIVIDAD 1
+        ========================== -->
+        <section class="practice-content">
+
+            <div class="practice-section-title">
+
+                <span>02</span>
+
+                <div>
+                    <p class="section-label">
+                        ACTIVIDAD 01
+                    </p>
+
+                    <h2>
+                        Creación de un parque en Unity
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <div class="activity-grid">
+
+                <!-- TEXTO -->
+                <div class="activity-description">
+
+                    <p class="activity-tag">
+                        UNITY · ENTORNO 3D
+                    </p>
+
+                    <h3>
+                        Familiarización con el entorno
+                    </h3>
+
+                    <p>
+                        La primera actividad consistió en crear un parque
+                        utilizando distintos elementos tridimensionales.
+                        Esto nos permitió conocer la interfaz de Unity y
+                        aprender a trabajar con la posición, rotación y
+                        escala de los objetos dentro de una escena.
+                    </p>
+
+                    <p>
+                        También trabajamos con el sistema de
+                        <strong>jerarquías padre-hijo</strong>, el cual permite
+                        establecer relaciones entre diferentes objetos para
+                        controlar de manera correcta sus transformaciones.
+                    </p>
+
+
+                    <div class="highlight-box">
+
+                        <span class="highlight-icon">✦</span>
+
+                        <div>
+                            <h4>
+                                Ejemplo: rueda de la fortuna
+                            </h4>
+
+                            <p>
+                                La estructura principal permanece fija,
+                                mientras que únicamente la rueda realiza la
+                                rotación. Las cabinas están organizadas dentro
+                                de la jerarquía para acompañar correctamente el
+                                movimiento de la rueda.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- VIDEO -->
+                <div class="video-card">
+
+                    <div class="video-header">
+
+                        <div>
+                            <span class="video-dot"></span>
+                            Demostración
+                        </div>
+
+                        <span>UNITY</span>
+
+                    </div>
+
+
+                    <video controls preload="metadata">
+                        <source
+                            src="../videos/parque_picopark.mp4"
+                            type="video/mp4"
+                        >
+
+                        Tu navegador no soporta videos HTML5.
+                    </video>
+
+
+                    <div class="video-caption">
+
+                        <strong>
+                            Parque PICOPARK
+                        </strong>
+
+                        <p>
+                            Demostración del escenario y funcionamiento
+                            de la rueda de la fortuna.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONCEPTOS -->
+            <div class="concept-grid">
+
+                <article class="concept-card">
+
+                    <span>01</span>
+
+                    <h4>
+                        GameObjects
+                    </h4>
+
+                    <p>
+                        Elementos utilizados para construir y organizar
+                        la escena tridimensional.
+                    </p>
+
+                </article>
+
+
+                <article class="concept-card">
+
+                    <span>02</span>
+
+                    <h4>
+                        Transform
+                    </h4>
+
+                    <p>
+                        Manipulación de posición, rotación y escala
+                        de cada objeto.
+                    </p>
+
+                </article>
+
+
+                <article class="concept-card">
+
+                    <span>03</span>
+
+                    <h4>
+                        Jerarquías
+                    </h4>
+
+                    <p>
+                        Organización padre-hijo para relacionar
+                        movimientos entre objetos.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ACTIVIDAD 2
+        ========================== -->
+        <section class="practice-content">
+
+            <div class="practice-section-title">
+
+                <span>03</span>
+
+                <div>
+                    <p class="section-label">
+                        ACTIVIDAD 02
+                    </p>
+
+                    <h2>
+                        Avance del proyecto final
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <div class="project-banner">
+
+                <div class="project-banner-content">
+
+                    <p class="activity-tag">
+                        BLENDER · UNITY · RCP
+                    </p>
+
+                    <h3>
+                        Maniquí virtual para entrenamiento de RCP
+                    </h3>
+
+                    <p>
+                        Como proyecto final decidimos desarrollar una
+                        experiencia de realidad virtual enfocada en la
+                        simulación de un maniquí de reanimación
+                        cardiopulmonar.
+                    </p>
+
+                </div>
+
+                <div class="project-number">
+                    3D
+                </div>
+
+            </div>
+
+
+            <div class="activity-grid reverse-layout">
+
+                <!-- VIDEO -->
+                <div class="video-card">
+
+                    <div class="video-header">
+
+                        <div>
+                            <span class="video-dot purple"></span>
+                            Primera versión
+                        </div>
+
+                        <span>BLENDER → UNITY</span>
+
+                    </div>
+
+
+                    <video controls preload="metadata">
+                        <source
+                            src="../videos/Maniqui_RCP.mp4"
+                            type="video/mp4"
+                        >
+
+                        Tu navegador no soporta videos HTML5.
+                    </video>
+
+
+                    <div class="video-caption">
+
+                        <strong>
+                            Dummy de RCP
+                        </strong>
+
+                        <p>
+                            Visualización de la primera versión del
+                            maniquí dentro del entorno de desarrollo.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TEXTO -->
+                <div class="activity-description">
+
+                    <p class="activity-tag purple-text">
+                        PROTOTIPO INICIAL
+                    </p>
+
+                    <h3>
+                        Modelado mediante código
+                    </h3>
+
+                    <p>
+                        Para esta primera versión se desarrolló el modelo
+                        del maniquí en Blender utilizando un script.
+                        El cuerpo fue generado a partir de distintas
+                        figuras geométricas que posteriormente fueron
+                        escaladas, rotadas y posicionadas para aproximarse
+                        a la anatomía de un maniquí de RCP.
+                    </p>
+
+                    <p>
+                        Este modelo representa el punto de partida del
+                        proyecto. Conforme avance el desarrollo se buscará
+                        mejorar su apariencia, anatomía e interacción para
+                        integrarlo en una experiencia inmersiva de realidad
+                        virtual.
+                    </p>
+
+
+                    <div class="prototype-steps">
+
+                        <div>
+                            <span>01</span>
+                            <p>Creación del modelo mediante código.</p>
+                        </div>
+
+                        <div>
+                            <span>02</span>
+                            <p>Construcción con geometrías básicas.</p>
+                        </div>
+
+                        <div>
+                            <span>03</span>
+                            <p>Exportación e integración al entorno 3D.</p>
+                        </div>
+
+                        <div>
+                            <span>04</span>
+                            <p>
+                                Base para futuras interacciones en RV.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             APRENDIZAJES
+        ========================== -->
+        <section class="practice-content">
+
+            <div class="practice-section-title">
+
+                <span>04</span>
+
+                <div>
+                    <p class="section-label">
+                        RESULTADOS
+                    </p>
+
+                    <h2>
+                        Aprendizajes obtenidos
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <div class="learning-grid">
+
+                <article>
+
+                    <div class="learning-icon">
+                        ◈
+                    </div>
+
+                    <h3>
+                        Unity
+                    </h3>
+
+                    <p>
+                        Familiarización con la interfaz y las herramientas
+                        principales para la creación de escenas 3D.
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <div class="learning-icon">
+                        ⌘
+                    </div>
+
+                    <h3>
+                        Jerarquías
+                    </h3>
+
+                    <p>
+                        Comprensión de las relaciones entre objetos y
+                        su importancia para realizar movimientos
+                        correctamente.
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <div class="learning-icon">
+                        ◇
+                    </div>
+
+                    <h3>
+                        Modelado 3D
+                    </h3>
+
+                    <p>
+                        Uso de Blender y programación para generar una
+                        primera aproximación de un modelo tridimensional.
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <div class="learning-icon">
+                        ◎
+                    </div>
+
+                    <h3>
+                        Proyecto VR
+                    </h3>
+
+                    <p>
+                        Definición de una primera propuesta para el
+                        proyecto final de realidad virtual.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SIGUIENTE
+        ========================== -->
+        <section class="practice-navigation">
+
+            <div>
+
+                <p>
+                    PRÁCTICA 01
+                </p>
+
+                <h2>
+                    Primera etapa completada
+                </h2>
+
+            </div>
+
+            <a href="../index.html#practicas" class="btn-primary">
+                Volver a prácticas
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div class="footer-logo">
+            PICOPARK
+        </div>
+
+        <p>
+            Tecnologías Emergentes · 2026
+        </p>
+
+        <p>
+            Camila + Alex
+        </p>
+
+    </footer>
+
+</body>
+</html>

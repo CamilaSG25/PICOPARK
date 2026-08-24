@@ -1,0 +1,663 @@
+/* ==============================
+   PICOPARK - PRACTICA 01
+============================== */
+
+.practice-logo {
+    color: white;
+    text-decoration: none;
+}
+
+
+/* ==============================
+   HERO
+============================== */
+
+.practice-hero {
+    width: min(1180px, 86%);
+    min-height: 72vh;
+
+    margin: 0 auto;
+    padding: 110px 0 70px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+}
+
+.practice-hero-glow {
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    top: -120px;
+    right: -250px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.18),
+            transparent 65%
+        );
+
+    filter: blur(20px);
+
+    z-index: -1;
+}
+
+.back-link {
+    color: #94a3b8;
+    text-decoration: none;
+
+    margin-bottom: 55px;
+
+    width: fit-content;
+
+    transition: 0.3s;
+}
+
+.back-link:hover {
+    color: #38bdf8;
+}
+
+.practice-page-label {
+    color: #38bdf8;
+
+    font-size: 0.78rem;
+    letter-spacing: 4px;
+
+    margin-bottom: 16px;
+}
+
+.practice-hero h1 {
+    font-size: clamp(3rem, 7vw, 6rem);
+
+    line-height: 0.98;
+
+    max-width: 900px;
+
+    margin-bottom: 28px;
+}
+
+.practice-hero h1 span {
+    display: block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #38bdf8,
+            #8b5cf6,
+            #d946ef
+        );
+
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.practice-intro {
+    max-width: 760px;
+
+    font-size: 1.05rem;
+    line-height: 1.8;
+
+    color: #a8b5c8;
+}
+
+.practice-meta {
+    display: flex;
+    gap: 55px;
+
+    margin-top: 50px;
+
+    padding-top: 28px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.08);
+}
+
+.practice-meta div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.practice-meta span {
+    font-size: 0.67rem;
+    letter-spacing: 2px;
+
+    color: #64748b;
+}
+
+.practice-meta strong {
+    font-size: 0.9rem;
+}
+
+.meta-complete {
+    color: #4ade80;
+}
+
+
+/* ==============================
+   CONTENIDO
+============================== */
+
+.practice-content {
+    width: min(1180px, 86%);
+
+    margin: 0 auto;
+
+    padding: 80px 0;
+}
+
+.practice-section-title {
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+
+    margin-bottom: 35px;
+}
+
+.practice-section-title > span {
+    font-size: 3rem;
+    font-weight: bold;
+
+    color: rgba(56, 189, 248, 0.12);
+}
+
+.practice-section-title h2 {
+    font-size: 2rem;
+}
+
+.info-panel {
+    max-width: 900px;
+
+    padding: 35px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(9, 24, 52, 0.8),
+            rgba(19, 14, 46, 0.65)
+        );
+
+    border:
+        1px solid rgba(56, 189, 248, 0.12);
+}
+
+.info-panel p {
+    color: #a8b5c8;
+
+    line-height: 1.8;
+
+    margin-bottom: 16px;
+}
+
+.info-panel p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ==============================
+   ACTIVIDADES
+============================== */
+
+.activity-grid {
+    display: grid;
+
+    grid-template-columns:
+        0.9fr 1.1fr;
+
+    gap: 45px;
+
+    align-items: center;
+}
+
+.activity-description h3 {
+    font-size: 1.8rem;
+
+    margin: 12px 0 20px;
+}
+
+.activity-description > p:not(.activity-tag) {
+    color: #9baabc;
+
+    line-height: 1.75;
+
+    margin-bottom: 18px;
+}
+
+.activity-description strong {
+    color: white;
+}
+
+.activity-tag {
+    color: #38bdf8;
+
+    letter-spacing: 2px;
+
+    font-size: 0.68rem;
+}
+
+.purple-text {
+    color: #c084fc;
+}
+
+
+/* ==============================
+   VIDEO
+============================== */
+
+.video-card {
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    border:
+        1px solid rgba(56, 189, 248, 0.15);
+
+    background: #061229;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.video-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 14px 18px;
+
+    color: #94a3b8;
+
+    font-size: 0.72rem;
+
+    letter-spacing: 1px;
+}
+
+.video-header div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.video-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #38bdf8;
+
+    box-shadow:
+        0 0 12px #38bdf8;
+}
+
+.video-dot.purple {
+    background: #a855f7;
+
+    box-shadow:
+        0 0 12px #a855f7;
+}
+
+.video-card video {
+    width: 100%;
+
+    display: block;
+
+    background: black;
+}
+
+.video-caption {
+    padding: 18px;
+}
+
+.video-caption strong {
+    display: block;
+
+    margin-bottom: 5px;
+}
+
+.video-caption p {
+    color: #718198;
+
+    font-size: 0.8rem;
+}
+
+
+/* ==============================
+   DESTACADO
+============================== */
+
+.highlight-box {
+    display: flex;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    margin-top: 25px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(56, 189, 248, 0.06);
+
+    border:
+        1px solid rgba(56, 189, 248, 0.15);
+}
+
+.highlight-icon {
+    color: #38bdf8;
+
+    font-size: 1.4rem;
+}
+
+.highlight-box h4 {
+    margin-bottom: 6px;
+}
+
+.highlight-box p {
+    color: #94a3b8;
+
+    font-size: 0.88rem;
+
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   CONCEPTOS
+============================== */
+
+.concept-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-top: 40px;
+}
+
+.concept-card {
+    padding: 22px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(8, 20, 46, 0.6);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.06);
+}
+
+.concept-card span {
+    color: #38bdf8;
+
+    font-size: 0.7rem;
+}
+
+.concept-card h4 {
+    margin: 10px 0;
+}
+
+.concept-card p {
+    color: #8796aa;
+
+    font-size: 0.86rem;
+
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   PROYECTO FINAL
+============================== */
+
+.project-banner {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 32px;
+
+    margin-bottom: 45px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(41, 18, 76, 0.55),
+            rgba(6, 27, 59, 0.7)
+        );
+
+    border:
+        1px solid rgba(168, 85, 247, 0.2);
+}
+
+.project-banner-content {
+    max-width: 700px;
+}
+
+.project-banner h3 {
+    font-size: 1.7rem;
+
+    margin: 9px 0 12px;
+}
+
+.project-banner p:not(.activity-tag) {
+    color: #94a3b8;
+
+    line-height: 1.7;
+}
+
+.project-number {
+    font-size: 4.5rem;
+
+    font-weight: bold;
+
+    color: rgba(168, 85, 247, 0.17);
+}
+
+.prototype-steps {
+    margin-top: 25px;
+}
+
+.prototype-steps div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 12px 0;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.05);
+}
+
+.prototype-steps span {
+    color: #a855f7;
+
+    font-size: 0.72rem;
+}
+
+.prototype-steps p {
+    color: #94a3b8;
+
+    font-size: 0.88rem;
+}
+
+
+/* ==============================
+   APRENDIZAJES
+============================== */
+
+.learning-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.learning-grid article {
+    padding: 27px;
+
+    min-height: 220px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(8, 20, 46, 0.75),
+            rgba(17, 13, 42, 0.65)
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.06);
+
+    transition: 0.3s;
+}
+
+.learning-grid article:hover {
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(56, 189, 248, 0.25);
+}
+
+.learning-icon {
+    font-size: 1.8rem;
+
+    color: #38bdf8;
+
+    margin-bottom: 25px;
+}
+
+.learning-grid h3 {
+    margin-bottom: 10px;
+}
+
+.learning-grid p {
+    color: #8796aa;
+
+    line-height: 1.6;
+
+    font-size: 0.87rem;
+}
+
+
+/* ==============================
+   NAVEGACIÓN
+============================== */
+
+.practice-navigation {
+    width: min(1180px, 86%);
+
+    margin: 80px auto;
+
+    padding: 35px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-radius: 24px;
+
+    border:
+        1px solid rgba(56, 189, 248, 0.13);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(8, 24, 52, 0.8),
+            rgba(23, 13, 47, 0.6)
+        );
+}
+
+.practice-navigation p {
+    color: #38bdf8;
+
+    font-size: 0.68rem;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 7px;
+}
+
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 950px) {
+
+    .activity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .concept-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .practice-meta {
+        flex-wrap: wrap;
+
+        gap: 30px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .practice-hero {
+        padding-top: 80px;
+    }
+
+    .practice-meta {
+        flex-direction: column;
+    }
+
+    .learning-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-banner {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .practice-navigation {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+    }
+}
