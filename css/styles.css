@@ -759,3 +759,20 @@ footer {
         text-align: center;
     }
 }
+
+.profile-photo {
+    width: 95px;
+    height: 95px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    margin-bottom: 17px;
+
+    border: 2px solid rgba(56, 189, 248, 0.55);
+
+    box-shadow:
+        0 0 18px rgba(56, 189, 248, 0.25),
+        0 0 30px rgba(139, 92, 246, 0.15);
+}
