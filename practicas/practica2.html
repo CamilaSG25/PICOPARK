@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 2 | PICOPARK</title>
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <style>
+        .practice-page {
+            width: min(1100px, 88%);
+            margin: 0 auto;
+            padding: 70px 0 90px;
+        }
+
+        .practice-back {
+            display: inline-block;
+            margin-bottom: 32px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .practice-back:hover { color: #a855f7; }
+
+        .practice-hero-detail {
+            padding: 48px;
+            border-radius: 28px;
+            background: rgba(8, 20, 46, 0.68);
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.20);
+        }
+
+        .practice-kicker {
+            color: #38bdf8;
+            letter-spacing: 3px;
+            font-size: 0.78rem;
+            margin-bottom: 14px;
+        }
+
+        .practice-hero-detail h2 {
+            font-size: clamp(2.4rem, 6vw, 4.4rem);
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #38bdf8, #8b5cf6, #d946ef);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .practice-intro {
+            color: #aebbd0;
+            line-height: 1.8;
+            max-width: 850px;
+            font-size: 1.05rem;
+        }
+
+        .practice-content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 28px;
+        }
+
+        .practice-info-card {
+            padding: 28px;
+            border-radius: 22px;
+            background: rgba(8, 20, 46, 0.65);
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .practice-info-card.full { grid-column: 1 / -1; }
+
+        .practice-info-card h3 {
+            margin-bottom: 14px;
+            color: #f8fafc;
+        }
+
+        .practice-info-card p,
+        .practice-info-card li {
+            color: #aebbd0;
+            line-height: 1.75;
+        }
+
+        .practice-info-card ul {
+            padding-left: 20px;
+        }
+
+        .practice-info-card li + li {
+            margin-top: 8px;
+        }
+
+        .video-wrap {
+            margin-top: 28px;
+            padding: 18px;
+            border-radius: 24px;
+            background: rgba(8, 20, 46, 0.65);
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .video-wrap h3 {
+            margin: 5px 5px 16px;
+        }
+
+        .video-wrap video {
+            width: 100%;
+            display: block;
+            border-radius: 18px;
+            background: #000;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .tech-tags span {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(56,189,248,0.10);
+            border: 1px solid rgba(56,189,248,0.24);
+            color: #7dd3fc;
+            font-size: 0.82rem;
+        }
+
+        @media (max-width: 760px) {
+            .practice-hero-detail { padding: 30px 22px; }
+            .practice-content-grid { grid-template-columns: 1fr; }
+            .practice-info-card.full { grid-column: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <div class="logo-icon">P</div>
+            <div>
+                <h1>PICOPARK</h1>
+                <span>Tecnologías Emergentes</span>
+            </div>
+        </div>
+
+        <nav class="nav-links">
+            <a href="../index.html#inicio">Inicio</a>
+            <a href="../index.html#practicas" class="active">Prácticas</a>
+            <a href="../index.html#recursos">Recursos</a>
+            <a href="../index.html#equipo">Equipo</a>
+        </nav>
+    </header>
+
+    <main class="practice-page">
+        <a class="practice-back" href="../index.html#practicas">← Volver a prácticas</a>
+
+        <section class="practice-hero-detail">
+            <p class="practice-kicker">PRÁCTICA 02 · REALIDAD VIRTUAL</p>
+            <h2>Animación y física en un entorno inmersivo</h2>
+            <p class="practice-intro">
+                En esta práctica continuamos desarrollando nuestro parque virtual en Unity y nos enfocamos en darle movimiento y comportamiento físico a los objetos del escenario. Aprendimos a crear animaciones modificando propiedades como la posición y la rotación, registrando distintos estados mediante keyframes para construir movimientos a lo largo del tiempo. Además, probamos herramientas de física y gravedad para hacer que los elementos del entorno reaccionaran de una manera más natural dentro de la experiencia de realidad virtual.
+            </p>
+
+            <div class="tech-tags">
+                <span>Unity</span>
+                <span>Realidad Virtual</span>
+                <span>Animation</span>
+                <span>Keyframes</span>
+                <span>Rotation</span>
+                <span>Position</span>
+                <span>Physics</span>
+                <span>Gravity</span>
+            </div>
+        </section>
+
+        <section class="practice-content-grid">
+            <article class="practice-info-card">
+                <h3>Objetivo</h3>
+                <p>
+                    Aprender a utilizar las herramientas de animación y física de Unity para incorporar movimiento a los objetos de un escenario inmersivo y comprender cómo estas propiedades ayudan a construir una experiencia virtual más dinámica.
+                </p>
+            </article>
+
+            <article class="practice-info-card">
+                <h3>¿Qué aprendimos?</h3>
+                <ul>
+                    <li>Crear animaciones utilizando la ventana Animation de Unity.</li>
+                    <li>Registrar cambios de posición y rotación mediante keyframes.</li>
+                    <li>Controlar la trayectoria y el movimiento de objetos dentro del escenario.</li>
+                    <li>Experimentar con gravedad, colisiones y propiedades físicas.</li>
+                    <li>Integrar movimiento a elementos del parque, como la rueda de la fortuna.</li>
+                </ul>
+            </article>
+
+            <article class="practice-info-card full">
+                <h3>Desarrollo de la práctica</h3>
+                <p>
+                    Partiendo del parque virtual desarrollado anteriormente, comenzamos a trabajar con el sistema de animaciones de Unity. Para ello seleccionamos diferentes objetos y modificamos propiedades como <strong>Position</strong> y <strong>Rotation</strong> en distintos momentos de la línea de tiempo. Cada cambio se almacenó en un keyframe, permitiendo que Unity interpolara los valores entre ellos y generara el movimiento automáticamente.
+                </p>
+                <br>
+                <p>
+                    Después experimentamos con las herramientas de física del motor, principalmente la gravedad y la interacción de los objetos con el entorno. Esto nos permitió observar la diferencia entre un objeto que únicamente sigue una animación programada y otro que también responde a las leyes físicas de la escena. Finalmente aplicamos estos conceptos a los elementos del parque, incluyendo el movimiento de la rueda de la fortuna, logrando que el escenario se sintiera más activo e inmersivo al visualizarlo con los lentes de realidad virtual.
+                </p>
+            </article>
+        </section>
+
+        <section class="video-wrap">
+            <h3>Video de la práctica</h3>
+            <video controls preload="metadata">
+                <source src="../videos/practica2_web.mp4" type="video/mp4">
+                Tu navegador no puede reproducir este video.
+            </video>
+        </section>
+
+        <section class="practice-content-grid">
+            <article class="practice-info-card full">
+                <h3>Conclusión</h3>
+                <p>
+                    Esta práctica nos permitió pasar de tener un escenario principalmente estático a comenzar a construir un entorno que realmente se siente vivo. El uso de keyframes nos ayudó a entender cómo Unity registra y reproduce cambios de posición y rotación, mientras que las pruebas con física y gravedad nos mostraron cómo los objetos pueden reaccionar de forma más natural dentro del mundo virtual. Con esto, nuestro parque ya no solo funciona como un escenario visual, sino como una base para seguir agregando interacción y elementos cada vez más inmersivos.
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">PICOPARK</span>
+        <span>Materia de Tecnologías Emergentes</span>
+    </footer>
+
+</body>
+</html>
