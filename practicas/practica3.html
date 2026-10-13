@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Práctica 3 | PICOPARK</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <style>
+
+        .practice-page {
+            width: min(1100px, 88%);
+            margin: 0 auto;
+            padding: 70px 0 90px;
+        }
+
+        .practice-back {
+            display: inline-block;
+            margin-bottom: 32px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .practice-back:hover {
+            color: #a855f7;
+        }
+
+        .practice-hero-detail {
+            padding: 48px;
+            border-radius: 28px;
+            background: rgba(8, 20, 46, 0.68);
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.20);
+        }
+
+        .practice-kicker {
+            color: #38bdf8;
+            letter-spacing: 3px;
+            font-size: 0.78rem;
+            margin-bottom: 14px;
+        }
+
+        .practice-hero-detail h2 {
+            font-size: clamp(2.4rem, 6vw, 4.4rem);
+            margin-bottom: 20px;
+
+            background: linear-gradient(
+                90deg,
+                #38bdf8,
+                #8b5cf6,
+                #d946ef
+            );
+
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .practice-intro {
+            color: #aebbd0;
+            line-height: 1.8;
+            max-width: 850px;
+            font-size: 1.05rem;
+        }
+
+        .practice-content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 28px;
+        }
+
+        .practice-info-card {
+            padding: 28px;
+            border-radius: 22px;
+            background: rgba(8, 20, 46, 0.65);
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .practice-info-card.full {
+            grid-column: 1 / -1;
+        }
+
+        .practice-info-card h3 {
+            margin-bottom: 14px;
+            color: #f8fafc;
+        }
+
+        .practice-info-card p,
+        .practice-info-card li {
+            color: #aebbd0;
+            line-height: 1.75;
+        }
+
+        .practice-info-card ul {
+            padding-left: 20px;
+        }
+
+        .practice-info-card li + li {
+            margin-top: 8px;
+        }
+
+        .video-wrap {
+            margin-top: 28px;
+            padding: 18px;
+            border-radius: 24px;
+            background: rgba(8, 20, 46, 0.65);
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .video-wrap h3 {
+            margin: 5px 5px 10px;
+        }
+
+        .video-wrap p {
+            margin: 0 5px 16px;
+            color: #aebbd0;
+            line-height: 1.7;
+        }
+
+        .video-wrap video {
+            width: 100%;
+            display: block;
+            border-radius: 18px;
+            background: #000;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .tech-tags span {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(56,189,248,0.10);
+            border: 1px solid rgba(56,189,248,0.24);
+            color: #7dd3fc;
+            font-size: 0.82rem;
+        }
+
+        @media (max-width: 760px) {
+
+            .practice-hero-detail {
+                padding: 30px 22px;
+            }
+
+            .practice-content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .practice-info-card.full {
+                grid-column: auto;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                P
+            </div>
+
+            <div>
+                <h1>PICOPARK</h1>
+                <span>Tecnologías Emergentes</span>
+            </div>
+
+        </div>
+
+
+        <nav class="nav-links">
+
+            <a href="../index.html#inicio">
+                Inicio
+            </a>
+
+            <a href="../index.html#practicas" class="active">
+                Prácticas
+            </a>
+
+            <a href="../index.html#recursos">
+                Recursos
+            </a>
+
+            <a href="../index.html#equipo">
+                Equipo
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <main class="practice-page">
+
+
+        <a
+            class="practice-back"
+            href="../index.html#practicas"
+        >
+            ← Volver a prácticas
+        </a>
+
+
+
+        <!-- INTRODUCCIÓN -->
+
+        <section class="practice-hero-detail">
+
+            <p class="practice-kicker">
+                PRÁCTICA 03 · REALIDAD VIRTUAL
+            </p>
+
+            <h2>
+                Física y detección de colisiones en Unity
+            </h2>
+
+
+            <p class="practice-intro">
+
+                En esta práctica trabajamos con el sistema de física de
+                Unity para observar cómo interactúan los objetos dentro
+                de una escena. Construimos una pista con una rampa,
+                paredes y diferentes obstáculos, sobre la cual colocamos
+                esferas con propiedades físicas mediante Rigidbody y
+                Sphere Collider. A partir de esta escena realizamos
+                diferentes pruebas de colisión y comparamos los modos
+                Discrete y Continuous cuando los objetos se desplazan a
+                mayor velocidad.
+
+            </p>
+
+
+            <div class="tech-tags">
+
+                <span>Unity</span>
+                <span>Realidad Virtual</span>
+                <span>Rigidbody</span>
+                <span>Sphere Collider</span>
+                <span>Colliders</span>
+                <span>Physics</span>
+                <span>Discrete</span>
+                <span>Continuous</span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- INFORMACIÓN -->
+
+        <section class="practice-content-grid">
+
+
+            <article class="practice-info-card">
+
+                <h3>
+                    Objetivo
+                </h3>
+
+                <p>
+
+                    Comprender el funcionamiento de las colisiones y la
+                    física en Unity mediante la creación de una pista y
+                    diferentes pruebas con objetos físicos, analizando
+                    también cómo influye el tipo de detección de
+                    colisiones cuando un objeto se mueve rápidamente.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="practice-info-card">
+
+                <h3>
+                    ¿Qué aprendimos?
+                </h3>
+
+                <ul>
+
+                    <li>
+                        Construir una escena sencilla utilizando objetos
+                        3D de Unity.
+                    </li>
+
+                    <li>
+                        Utilizar Rigidbody para aplicar comportamiento
+                        físico a un objeto.
+                    </li>
+
+                    <li>
+                        Trabajar con Sphere Collider y otros colliders.
+                    </li>
+
+                    <li>
+                        Observar la función de los colliders en pisos,
+                        paredes y obstáculos.
+                    </li>
+
+                    <li>
+                        Comparar los modos de detección Discrete y
+                        Continuous.
+                    </li>
+
+                </ul>
+
+            </article>
+
+
+
+            <!-- DESARROLLO -->
+
+            <article class="practice-info-card full">
+
+                <h3>
+                    Desarrollo de la práctica
+                </h3>
+
+                <p>
+
+                    Primero construimos una pista utilizando diferentes
+                    objetos de Unity. Creamos un piso, agregamos una
+                    rampa inclinada y colocamos dos paredes laterales
+                    para mantener las esferas dentro del recorrido.
+                    También añadimos varios obstáculos sobre el piso
+                    para observar cómo cambiaba la trayectoria de las
+                    pelotas al chocar con ellos.
+
+                </p>
+
+                <br>
+
+                <p>
+
+                    Después colocamos una esfera y configuramos sus
+                    componentes <strong>Sphere Collider</strong> y
+                    <strong>Rigidbody</strong>. Con esto la pelota pudo
+                    reaccionar a la gravedad y a las superficies de la
+                    escena. Como prueba, desactivamos temporalmente el
+                    collider del piso para comprobar su función. Al no
+                    existir una superficie de colisión, la esfera podía
+                    atravesar el piso en lugar de detenerse sobre él.
+
+                </p>
+
+                <br>
+
+                <p>
+
+                    Finalmente aumentamos la velocidad de las esferas
+                    para analizar los modos de detección de colisiones.
+                    Probamos primero <strong>Discrete</strong>, que es
+                    adecuado para la mayoría de los objetos, y después
+                    <strong>Continuous</strong>, diseñado para reducir
+                    la posibilidad de que un objeto rápido atraviese una
+                    superficie entre una actualización física y otra.
+
+                </p>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- VIDEO 1 -->
+
+        <section class="video-wrap">
+
+            <h3>
+                Prueba de la pista
+            </h3>
+
+            <p>
+
+                En esta prueba se observa el comportamiento de varias
+                esferas dentro de la pista y su interacción con los
+                obstáculos mediante gravedad y colisiones.
+
+            </p>
+
+
+            <video controls preload="metadata">
+
+                <source
+                    src="../videos/practica3_bolas.mp4"
+                    type="video/mp4"
+                >
+
+                Tu navegador no puede reproducir este video.
+
+            </video>
+
+        </section>
+
+
+
+        <!-- VIDEO 2 -->
+
+        <section class="video-wrap">
+
+            <h3>
+                Detección de colisiones: Discrete
+            </h3>
+
+            <p>
+
+                En el modo Discrete, Unity comprueba las colisiones en
+                cada actualización de física. Este método consume menos
+                recursos y funciona correctamente para objetos que se
+                desplazan a velocidades normales.
+
+            </p>
+
+
+            <video controls preload="metadata">
+
+                <source
+                    src="../videos/practica3_discrete.mp4"
+                    type="video/mp4"
+                >
+
+                Tu navegador no puede reproducir este video.
+
+            </video>
+
+        </section>
+
+
+
+        <!-- VIDEO 3 -->
+
+        <section class="video-wrap">
+
+            <h3>
+                Detección de colisiones: Continuous
+            </h3>
+
+            <p>
+
+                Después cambiamos la detección a Continuous para
+                observar su comportamiento con objetos que se mueven
+                rápidamente. Este modo permite detectar de mejor manera
+                el recorrido del objeto y disminuye el riesgo de que la
+                esfera atraviese una superficie.
+
+            </p>
+
+
+            <video controls preload="metadata">
+
+                <source
+                    src="../videos/practica3_continuous.mp4"
+                    type="video/mp4"
+                >
+
+                Tu navegador no puede reproducir este video.
+
+            </video>
+
+        </section>
+
+
+
+        <!-- CONCLUSIÓN -->
+
+        <section class="practice-content-grid">
+
+            <article class="practice-info-card full">
+
+                <h3>
+                    Conclusión
+                </h3>
+
+                <p>
+
+                    Esta práctica nos ayudó a entender mejor cómo
+                    funciona la física dentro de Unity y la importancia
+                    que tienen los colliders para que los objetos puedan
+                    interactuar correctamente con el escenario. También
+                    pudimos ver que la velocidad de un objeto puede
+                    afectar la forma en que Unity detecta una colisión,
+                    por lo que comparar Discrete y Continuous nos
+                    permitió entender cuándo puede ser necesario cambiar
+                    este tipo de configuración. Con estas pruebas
+                    seguimos agregando comportamientos más reales a los
+                    objetos que posteriormente podemos integrar en
+                    nuestros entornos de realidad virtual.
+
+                </p>
+
+            </article>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <span class="footer-logo">
+            PICOPARK
+        </span>
+
+        <span>
+            Materia de Tecnologías Emergentes
+        </span>
+
+    </footer>
+
+
+</body>
+</html>
