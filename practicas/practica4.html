@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Práctica 4 | PICOPARK</title>
+
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <style>
+
+        .practice-page {
+            width: min(1100px, 88%);
+            margin: 0 auto;
+            padding: 70px 0 90px;
+        }
+
+        .practice-back {
+            display: inline-block;
+            margin-bottom: 32px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .practice-back:hover {
+            color: #a855f7;
+        }
+
+        .practice-hero-detail {
+            padding: 48px;
+            border-radius: 28px;
+            background: rgba(8, 20, 46, 0.68);
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.20);
+        }
+
+        .practice-kicker {
+            color: #38bdf8;
+            letter-spacing: 3px;
+            font-size: 0.78rem;
+            margin-bottom: 14px;
+        }
+
+        .practice-hero-detail h2 {
+            font-size: clamp(2.4rem, 6vw, 4.4rem);
+            margin-bottom: 20px;
+
+            background: linear-gradient(
+                90deg,
+                #38bdf8,
+                #8b5cf6,
+                #d946ef
+            );
+
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .practice-intro {
+            color: #aebbd0;
+            line-height: 1.8;
+            max-width: 850px;
+            font-size: 1.05rem;
+        }
+
+        .practice-content-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 28px;
+        }
+
+        .practice-info-card {
+            padding: 28px;
+            border-radius: 22px;
+            background: rgba(8, 20, 46, 0.65);
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .practice-info-card.full {
+            grid-column: 1 / -1;
+        }
+
+        .practice-info-card h3 {
+            margin-bottom: 14px;
+            color: #f8fafc;
+        }
+
+        .practice-info-card p,
+        .practice-info-card li {
+            color: #aebbd0;
+            line-height: 1.75;
+        }
+
+        .practice-info-card ul {
+            padding-left: 20px;
+        }
+
+        .practice-info-card li + li {
+            margin-top: 8px;
+        }
+
+        .video-wrap {
+            margin-top: 28px;
+            padding: 18px;
+            border-radius: 24px;
+            background: rgba(8, 20, 46, 0.65);
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .video-wrap h3 {
+            margin: 5px 5px 10px;
+        }
+
+        .video-wrap p {
+            margin: 0 5px 16px;
+            color: #aebbd0;
+            line-height: 1.7;
+        }
+
+        .video-wrap video {
+            width: 100%;
+            display: block;
+            border-radius: 18px;
+            background: #000;
+        }
+
+
+        /* Evidencias fotográficas de la práctica 4 */
+        .video-wrap figure {
+            margin: 0;
+        }
+
+        .evidence-image {
+            width: 100%;
+            height: auto;
+            max-height: 680px;
+            object-fit: contain;
+            display: block;
+            border-radius: 18px;
+            background: #070b17;
+        }
+
+        .evidence-caption {
+            color: #aebbd0;
+            font-size: 0.90rem;
+            line-height: 1.6;
+            margin: 12px 5px 2px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .tech-tags span {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(56,189,248,0.10);
+            border: 1px solid rgba(56,189,248,0.24);
+            color: #7dd3fc;
+            font-size: 0.82rem;
+        }
+
+        @media (max-width: 760px) {
+
+            .practice-hero-detail {
+                padding: 30px 22px;
+            }
+
+            .practice-content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .practice-info-card.full {
+                grid-column: auto;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                P
+            </div>
+
+            <div>
+                <h1>PICOPARK</h1>
+                <span>Tecnologías Emergentes</span>
+            </div>
+
+        </div>
+
+
+        <nav class="nav-links">
+
+            <a href="../index.html#inicio">
+                Inicio
+            </a>
+
+            <a href="../index.html#practicas" class="active">
+                Prácticas
+            </a>
+
+            <a href="../index.html#recursos">
+                Recursos
+            </a>
+
+            <a href="../index.html#equipo">
+                Equipo
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <main class="practice-page">
+
+        <a class="practice-back" href="../index.html#practicas">
+            ← Volver a prácticas
+        </a>
+
+        <!-- INTRODUCCIÓN -->
+        <section class="practice-hero-detail">
+
+            <p class="practice-kicker">PRÁCTICA 04 · REALIDAD VIRTUAL</p>
+
+            <h2>Detección de colisiones e interacción en RV</h2>
+
+            <p class="practice-intro">
+                En esta práctica trabajamos con la interacción entre objetos en Unity
+                para activar eventos dentro de un entorno virtual. La actividad
+                consistía en crear una nave que, al acercarse a un agujero negro,
+                hiciera aparecer planetas y asteroides. Nosotros decidimos adaptar
+                la idea utilizando una combi roja como vehículo y probamos la
+                experiencia con lentes de realidad virtual.
+            </p>
+
+            <div class="tech-tags">
+                <span>Unity</span>
+                <span>Realidad Virtual</span>
+                <span>Meta XR</span>
+                <span>Colliders</span>
+                <span>Triggers</span>
+                <span>C#</span>
+                <span>Modelos 3D</span>
+            </div>
+
+        </section>
+
+        <!-- INFORMACIÓN -->
+        <section class="practice-content-grid">
+
+            <article class="practice-info-card">
+                <h3>Objetivo</h3>
+                <p>
+                    Comprender cómo detectar la interacción entre objetos en Unity
+                    y utilizarla para ejecutar una acción dentro de una escena de
+                    realidad virtual, relacionando el movimiento de un vehículo
+                    con la aparición de varios planetas.
+                </p>
+            </article>
+
+            <article class="practice-info-card">
+                <h3>¿Qué aprendimos?</h3>
+                <ul>
+                    <li>Importar y acomodar modelos 3D dentro de Unity.</li>
+                    <li>Vincular un vehículo a la cámara para acompañar nuestro movimiento en RV.</li>
+                    <li>Configurar una vista desde el interior del vehículo.</li>
+                    <li>Utilizar una zona de detección para activar objetos en la escena.</li>
+                    <li>Comprobar el funcionamiento de la interacción con los lentes.</li>
+                </ul>
+            </article>
+
+            <!-- DESARROLLO -->
+            <article class="practice-info-card full">
+                <h3>Desarrollo de la práctica</h3>
+
+                <p>
+                    Primero descargamos de internet un modelo 3D de una combi roja
+                    y lo incorporamos a nuestra escena de Unity. Aunque las
+                    instrucciones proponían una nave espacial, elegimos este
+                    vehículo para darle un toque diferente a la experiencia.
+                    También colocamos un objeto oscuro que representaba el agujero
+                    negro y agregamos los planetas que aparecerían después.
+                </p>
+
+                <br>
+
+                <p>
+                    Para movernos en realidad virtual, hicimos que la combi fuera
+                    un <strong>objeto hijo de la cámara</strong>, de manera que
+                    siguiera su movimiento. Después ajustamos la posición de la
+                    cámara al interior del vehículo para observar el entorno
+                    a través de sus ventanas, como si estuviéramos viajando
+                    dentro de él.
+                </p>
+
+                <br>
+
+                <p>
+                    Finalmente, trabajamos con la detección de contacto para que
+                    el agujero negro funcionara como punto de activación. Al
+                    acercarnos con el vehículo y entrar en la zona configurada,
+                    <strong>todos los planetas aparecían al mismo tiempo</strong>.
+                    Realizamos pruebas en Unity y posteriormente con los lentes
+                    de realidad virtual para revisar que la experiencia
+                    funcionara como esperábamos.
+                </p>
+
+            </article>
+
+        </section>
+
+        <!-- EVIDENCIA 1 -->
+        <section class="video-wrap">
+            <h3>1. Configuración del vehículo y el agujero negro</h3>
+            <p>
+                En la vista de escena podemos observar la combi roja que importamos
+                a Unity y el objeto que utilizamos como agujero negro.
+                También se muestra la perspectiva de la cámara desde el vehículo.
+            </p>
+            <figure>
+                <img class="evidence-image"
+                     src="../img/practica4_vehiculo.png"
+                     alt="Unity con una combi roja junto a un agujero negro y la vista desde su interior"
+                     loading="lazy">
+                <figcaption class="evidence-caption">Vista de Scene y Game durante la preparación del escenario.</figcaption>
+            </figure>
+        </section>
+
+        <!-- EVIDENCIA 2 -->
+        <section class="video-wrap">
+            <h3>2. Acercamiento y primera vista de los planetas</h3>
+            <p>
+                Probamos el acercamiento al agujero negro desde la perspectiva
+                de la cámara ubicada dentro de la combi. En esta captura
+                ya se alcanza a observar un planeta desde el vehículo.
+            </p>
+            <figure>
+                <img class="evidence-image"
+                     src="../img/practica4_acercamiento.png"
+                     alt="La combi se aproxima al agujero negro y se ve un planeta desde su cámara"
+                     loading="lazy">
+                <figcaption class="evidence-caption">Prueba de acercamiento al punto de interacción.</figcaption>
+            </figure>
+        </section>
+
+        <!-- EVIDENCIA 3 -->
+        <section class="video-wrap">
+            <h3>3. Aparición de los planetas</h3>
+            <p>
+                Una vez activada la zona de detección, los planetas aparecieron
+                juntos dentro de la experiencia. Con esta prueba comprobamos
+                la acción que queríamos conseguir mediante la interacción
+                con el agujero negro.
+            </p>
+            <figure>
+                <img class="evidence-image"
+                     src="../img/practica4_planetas.png"
+                     alt="Varios planetas visibles al mismo tiempo desde el interior del vehículo en Unity"
+                     loading="lazy">
+                <figcaption class="evidence-caption">Resultado de la interacción: varios planetas visibles al mismo tiempo.</figcaption>
+            </figure>
+        </section>
+
+        <!-- CONCLUSIÓN -->
+        <section class="practice-content-grid">
+            <article class="practice-info-card full">
+                <h3>Conclusión</h3>
+                <p>
+                    Esta práctica nos permitió entender mejor cómo una interacción
+                    entre objetos puede activar cambios dentro de una escena de
+                    Unity. Además, aprendimos a ajustar la cámara para que el
+                    vehículo nos acompañara al movernos con los lentes, haciendo
+                    que la experiencia se sintiera más inmersiva. Al final
+                    logramos que, al acercarnos al agujero negro, aparecieran
+                    todos los planetas al mismo tiempo, tal como buscábamos.
+                </p>
+            </article>
+        </section>
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <span class="footer-logo">
+            PICOPARK
+        </span>
+
+        <span>
+            Materia de Tecnologías Emergentes
+        </span>
+
+    </footer>
+
+
+</body>
+</html>
