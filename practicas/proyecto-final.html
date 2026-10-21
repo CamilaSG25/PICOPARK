@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Final | ANNE</title>
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <style>
+        .project-page {
+            width: min(1100px, 88%);
+            margin: 0 auto;
+            padding: 70px 0 90px;
+        }
+        .project-back {
+            display: inline-block;
+            margin-bottom: 32px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .project-back:hover { color: #a855f7; }
+        .project-hero {
+            padding: 48px;
+            border-radius: 28px;
+            background: rgba(8, 20, 46, 0.68);
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.20);
+        }
+        .project-hero-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 0.65fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .project-kicker {
+            color: #38bdf8;
+            letter-spacing: 3px;
+            font-size: 0.78rem;
+            margin-bottom: 14px;
+        }
+        .project-hero h2 {
+            font-size: clamp(3rem, 7vw, 5.2rem);
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #38bdf8, #8b5cf6, #d946ef);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .project-subtitle {
+            color: #f8fafc;
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .project-intro {
+            color: #aebbd0;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        .project-logo-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(255,255,255,0.94);
+            border-radius: 24px;
+            min-height: 280px;
+        }
+        .project-logo-box img {
+            width: 100%;
+            max-width: 310px;
+            display: block;
+            border-radius: 18px;
+        }
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 22px;
+        }
+        .tech-tags span {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(56,189,248,0.10);
+            border: 1px solid rgba(56,189,248,0.24);
+            color: #7dd3fc;
+            font-size: 0.82rem;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 28px;
+        }
+        .project-card {
+            padding: 28px;
+            border-radius: 22px;
+            background: rgba(8, 20, 46, 0.65);
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+        .project-card.full { grid-column: 1 / -1; }
+        .project-card h3 { margin-bottom: 14px; color: #f8fafc; }
+        .project-card p,
+        .project-card li { color: #aebbd0; line-height: 1.75; }
+        .project-card ul { padding-left: 20px; }
+        .project-card li + li { margin-top: 8px; }
+        .project-section {
+            margin-top: 28px;
+            padding: 32px;
+            border-radius: 24px;
+            background: rgba(8, 20, 46, 0.65);
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+        .project-section h3 { color: #f8fafc; margin-bottom: 12px; }
+        .project-section p { color: #aebbd0; line-height: 1.8; }
+        .section-label-small {
+            color: #38bdf8;
+            letter-spacing: 2px;
+            font-size: 0.76rem;
+            margin-bottom: 8px;
+        }
+        .tito-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 22px;
+        }
+        .tito-card {
+            overflow: hidden;
+            border-radius: 22px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+        .tito-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            display: block;
+            background: rgba(0,0,0,0.15);
+        }
+        .tito-card-content { padding: 24px; }
+        .tito-card h4 { color: #f8fafc; margin-bottom: 10px; font-size: 1.15rem; }
+        .tito-card p { color: #aebbd0; line-height: 1.7; }
+        .mode-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            background: rgba(56,189,248,0.10);
+            border: 1px solid rgba(56,189,248,0.24);
+            color: #7dd3fc;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .video-section { margin-top: 28px; }
+        .video-section-title { padding: 30px 32px 10px; }
+        .video-section-title h3 { color: #f8fafc; margin-bottom: 8px; }
+        .video-section-title p { color: #aebbd0; line-height: 1.7; }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+        .video-card {
+            padding: 16px;
+            border-radius: 22px;
+            background: rgba(8, 20, 46, 0.65);
+            border: 1px solid rgba(255,255,255,0.07);
+        }
+        .video-card video {
+            width: 100%;
+            display: block;
+            border-radius: 16px;
+            background: #000;
+            max-height: 420px;
+        }
+        .video-card h4 { color: #f8fafc; margin: 16px 4px 7px; }
+        .video-card p {
+            color: #aebbd0;
+            line-height: 1.6;
+            font-size: 0.92rem;
+            margin: 0 4px 6px;
+        }
+        .progress-list {
+            list-style: none;
+            padding: 0 !important;
+            margin-top: 20px;
+        }
+        .progress-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 13px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .progress-list li:last-child { border-bottom: none; }
+        .check { color: #38bdf8; font-weight: bold; }
+        .pending { color: #a855f7; font-weight: bold; }
+        @media (max-width: 900px) {
+            .project-hero-grid { grid-template-columns: 1fr; }
+            .video-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 760px) {
+            .project-hero { padding: 30px 22px; }
+            .project-grid,
+            .tito-grid { grid-template-columns: 1fr; }
+            .project-card.full { grid-column: auto; }
+            .tito-card img { height: auto; }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <div class="logo-icon">P</div>
+            <div>
+                <h1>PICOPARK</h1>
+                <span>Tecnologías Emergentes</span>
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="../index.html#inicio">Inicio</a>
+            <a href="../index.html#practicas">Prácticas</a>
+            <a href="../index.html#recursos">Recursos</a>
+            <a href="../index.html#equipo">Equipo</a>
+        </nav>
+    </header>
+
+    <main class="project-page">
+        <a class="project-back" href="../index.html">← Volver al inicio</a>
+
+        <section class="project-hero">
+            <div class="project-hero-grid">
+                <div>
+                    <p class="project-kicker">PROYECTO FINAL · REALIDAD MIXTA</p>
+                    <h2>ANNE</h2>
+                    <p class="project-subtitle">Aprendizaje y simulación de RCP mediante realidad mixta</p>
+                    <p class="project-intro">
+                        ANNE es nuestro proyecto final de la materia de Tecnologías Emergentes. La propuesta busca desarrollar una experiencia de realidad mixta enfocada en el aprendizaje de primeros auxilios, específicamente en la práctica de reanimación cardiopulmonar (RCP).
+                    </p>
+                    <br>
+                    <p class="project-intro">
+                        La idea es combinar un maniquí físico con sensores, al que llamamos <strong>Tito</strong>, con un entorno desarrollado en Unity. De esta forma buscamos que el usuario pueda practicar físicamente las compresiones mientras recibe información y retroalimentación dentro de una experiencia virtual.
+                    </p>
+                    <div class="tech-tags">
+                        <span>Realidad Mixta</span>
+                        <span>Unity</span>
+                        <span>RCP</span>
+                        <span>Sensores</span>
+                        <span>Maniquí físico</span>
+                        <span>Modelo STL</span>
+                        <span>Realidad Virtual</span>
+                    </div>
+                </div>
+                <div class="project-logo-box">
+                    <img src="../img/anne-logo.png" alt="Logo del proyecto ANNE">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-grid">
+            <article class="project-card">
+                <h3>Objetivo</h3>
+                <p>Desarrollar una herramienta de aprendizaje de RCP que combine elementos físicos y virtuales para que el usuario pueda practicar de una manera más dinámica e inmersiva.</p>
+            </article>
+
+            <article class="project-card">
+                <h3>¿Por qué realidad mixta?</h3>
+                <p>El proyecto busca unir la interacción con un objeto físico real, en este caso Tito, con información y escenarios generados digitalmente. Esto permitirá conservar la sensación física de realizar las compresiones mientras el usuario se encuentra dentro de una experiencia virtual.</p>
+            </article>
+
+            <article class="project-card full">
+                <h3>Preparación e investigación</h3>
+                <p>Antes de comenzar con el desarrollo tecnológico del proyecto realizamos una etapa de preparación para comprender mejor el procedimiento que queremos representar. Como parte de esta etapa tomamos un curso de RCP y practicamos directamente con maniquíes de entrenamiento.</p>
+                <br>
+                <p>También consultamos material de apoyo y libros de medicina proporcionados por la universidad. Esta investigación nos permitió conocer mejor los fundamentos, la técnica de las compresiones y los elementos principales que posteriormente deberán considerarse dentro de la experiencia de ANNE.</p>
+            </article>
+        </section>
+
+        <section class="project-section">
+            <p class="section-label-small">MANIQUÍ DE ENTRENAMIENTO</p>
+            <h3>Conoce a Tito</h3>
+            <p>Para la parte física del proyecto contamos con un maniquí de entrenamiento al que llamamos <strong>Tito</strong>. Este será uno de los elementos principales de ANNE, ya que sobre él se realizarán físicamente las compresiones durante la experiencia.</p>
+            <br>
+            <p>Nuestro siguiente objetivo es integrar sensores en el maniquí para obtener información sobre las compresiones realizadas por el usuario. Estos datos podrán utilizarse posteriormente como parte de la retroalimentación de la experiencia.</p>
+
+            <div class="tito-grid">
+                <article class="tito-card">
+                    <img src="../img/tito-fisico.png" alt="Tito, maniquí físico utilizado en el proyecto ANNE">
+                    <div class="tito-card-content">
+                        <h4>Tito físico</h4>
+                        <p>Maniquí que utilizaremos como interfaz física para realizar las prácticas de RCP e integrar posteriormente los sensores de medición.</p>
+                    </div>
+                </article>
+
+                <article class="tito-card">
+                    <img src="../img/tito-stl.png" alt="Modelo digital STL de Tito">
+                    <div class="tito-card-content">
+                        <h4>Tito digital</h4>
+                        <p>Ya contamos con una versión digital de Tito en formato STL. El modelo será utilizado posteriormente dentro de Unity para relacionar el maniquí físico con el entorno virtual.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="project-grid">
+            <article class="project-card">
+                <div class="mode-number">01</div>
+                <h3>Modo de aprendizaje</h3>
+                <p>En esta sección el usuario tendrá apoyo durante la práctica. La finalidad será aprender y familiarizarse con el procedimiento mientras recibe indicaciones y retroalimentación durante la experiencia.</p>
+            </article>
+
+            <article class="project-card">
+                <div class="mode-number">02</div>
+                <h3>Simulación real</h3>
+                <p>Después del aprendizaje se contará con un modo de simulación en el que el usuario deberá aplicar lo aprendido con una menor cantidad de apoyo.</p>
+                <br>
+                <p>Para esta parte ya comenzamos a trabajar en un ambiente virtual de hospital, con la intención de generar una situación más inmersiva y añadir la presión de encontrarse frente a una posible emergencia.</p>
+            </article>
+        </section>
+
+        <section class="project-section">
+            <p class="section-label-small">ENTORNO VIRTUAL</p>
+            <h3>Simulación en hospital</h3>
+            <p>Como parte del modo de simulación ya comenzamos a desarrollar un escenario de hospital dentro del entorno virtual. Este espacio será utilizado para colocar al usuario dentro de una situación diferente a una práctica guiada tradicional.</p>
+            <br>
+            <p>La intención es que el entorno contribuya a la sensación de estar enfrentando una emergencia y que posteriormente pueda combinarse con Tito y los datos obtenidos mediante los sensores.</p>
+        </section>
+
+        <section class="video-section">
+            <div class="video-section-title">
+                <p class="section-label-small">EVIDENCIA DEL PROYECTO</p>
+                <h3>Preparación y primeras pruebas</h3>
+                <p>Durante esta etapa documentamos parte de nuestra capacitación y las prácticas realizadas antes de comenzar con la integración tecnológica de ANNE.</p>
+            </div>
+
+            <div class="video-grid">
+                <article class="video-card">
+                    <video controls preload="metadata">
+                        <source src="../videos/anne-curso-rcp.mp4" type="video/mp4">
+                        Tu navegador no puede reproducir este video.
+                    </video>
+                    <h4>Capacitación en RCP</h4>
+                    <p>Evidencia de la preparación realizada para comprender el procedimiento que utilizaremos como base del proyecto.</p>
+                </article>
+
+                <article class="video-card">
+                    <video controls preload="metadata">
+                        <source src="../videos/anne-practica-rcp.mp4" type="video/mp4">
+                        Tu navegador no puede reproducir este video.
+                    </video>
+                    <h4>Práctica con maniquí</h4>
+                    <p>Primer acercamiento práctico al entrenamiento de RCP utilizando un maniquí.</p>
+                </article>
+
+                <article class="video-card">
+                    <video controls preload="metadata">
+                        <source src="../videos/anne-compresiones.mp4" type="video/mp4">
+                        Tu navegador no puede reproducir este video.
+                    </video>
+                    <h4>Técnica de compresiones</h4>
+                    <p>Parte de las pruebas y observaciones realizadas durante nuestra preparación para el proyecto.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="project-grid">
+            <article class="project-card">
+                <h3>Avances actuales</h3>
+                <ul class="progress-list">
+                    <li><span class="check">✓</span><span>Definición del concepto de ANNE.</span></li>
+                    <li><span class="check">✓</span><span>Diseño del logo del proyecto.</span></li>
+                    <li><span class="check">✓</span><span>Curso y práctica de RCP.</span></li>
+                    <li><span class="check">✓</span><span>Investigación y consulta de material médico.</span></li>
+                    <li><span class="check">✓</span><span>Obtención del maniquí físico Tito.</span></li>
+                    <li><span class="check">✓</span><span>Modelo digital de Tito en formato STL.</span></li>
+                    <li><span class="check">✓</span><span>Creación inicial del entorno virtual de hospital.</span></li>
+                </ul>
+            </article>
+
+            <article class="project-card">
+                <h3>Próximos pasos</h3>
+                <ul class="progress-list">
+                    <li><span class="pending">→</span><span>Integrar sensores dentro de Tito.</span></li>
+                    <li><span class="pending">→</span><span>Medir las compresiones realizadas por el usuario.</span></li>
+                    <li><span class="pending">→</span><span>Importar y preparar el modelo STL en Unity.</span></li>
+                    <li><span class="pending">→</span><span>Relacionar el maniquí físico con su versión digital.</span></li>
+                    <li><span class="pending">→</span><span>Desarrollar el modo de aprendizaje guiado.</span></li>
+                    <li><span class="pending">→</span><span>Completar el modo de simulación en el hospital.</span></li>
+                    <li><span class="pending">→</span><span>Integrar todos los elementos en una experiencia de realidad mixta.</span></li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="project-section">
+            <p class="section-label-small">ESTADO DEL PROYECTO</p>
+            <h3>De la preparación a la realidad mixta</h3>
+            <p>Actualmente ANNE se encuentra en una etapa de desarrollo en la que ya contamos con las bases tanto del componente físico como del digital. La capacitación en RCP nos permitió conocer mejor la actividad que queremos representar, mientras que Tito, su modelo STL y el escenario de hospital forman la base tecnológica sobre la que continuaremos trabajando.</p>
+            <br>
+            <p>Las siguientes etapas estarán enfocadas en conectar estos elementos para que el usuario pueda interactuar con un maniquí real mientras visualiza y recibe información dentro de un entorno virtual.</p>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">PICOPARK</span>
+        <span>ANNE · Proyecto Final · Tecnologías Emergentes</span>
+    </footer>
+</body>
+</html>
