@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Práctica 5 de PICOPARK: interacción con objetos 3D en Unity y comunicación MQTT mediante Mosquitto.">
+    <title>Práctica 5 | PICOPARK</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        /* Se reutiliza la identidad visual de las prácticas anteriores. */
+        .practice-page{width:min(1100px,88%);margin:0 auto;padding:70px 0 90px}
+        .practice-back{display:inline-block;margin-bottom:32px;color:#38bdf8;text-decoration:none;font-weight:700}
+        .practice-back:hover{color:#a855f7}
+        .practice-hero-detail,.practice-info-card,.evidence-panel,.result-panel{background:rgba(8,20,46,.68);border:1px solid rgba(255,255,255,.08);box-shadow:0 20px 60px rgba(0,0,0,.14)}
+        .practice-hero-detail{padding:48px;border-radius:28px}
+        .practice-kicker{color:#38bdf8;letter-spacing:3px;font-size:.78rem;margin-bottom:14px;text-transform:uppercase}
+        .practice-hero-detail h2{font-size:clamp(2.35rem,5.6vw,4.3rem);line-height:1.12;margin:0 0 20px;background:linear-gradient(90deg,#38bdf8,#8b5cf6,#d946ef);-webkit-background-clip:text;background-clip:text;color:transparent}
+        .practice-intro,.practice-info-card p,.practice-info-card li,.evidence-panel p,.result-panel p{color:#aebbd0;line-height:1.8}
+        .practice-intro{max-width:850px;font-size:1.05rem}
+        .tech-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+        .tech-tags span{padding:8px 12px;border-radius:999px;background:rgba(56,189,248,.10);border:1px solid rgba(56,189,248,.24);color:#7dd3fc;font-size:.82rem}
+        .practice-content-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:28px}
+        .practice-info-card{border-radius:22px;padding:28px}
+        .practice-info-card.full{grid-column:1/-1}
+        .practice-info-card h3,.evidence-panel h3,.result-panel h3{color:#f8fafc;margin:0 0 14px;font-size:1.3rem}
+        .practice-info-card ul{padding-left:20px;margin:0}
+        .practice-info-card li+li{margin-top:8px}
+        .practice-info-card p+p{margin-top:18px}
+        .practice-info-card strong,.result-panel strong{color:#e2e8f0}
+        .flow-steps{display:flex;align-items:stretch;flex-wrap:wrap;gap:10px;margin-top:18px}
+        .flow-steps span{flex:1 1 155px;min-width:0;padding:14px;border:1px solid rgba(139,92,246,.24);border-radius:14px;background:rgba(139,92,246,.08);color:#e0e7ff;text-align:center;font-size:.92rem}
+        .flow-steps b{color:#38bdf8;font-size:1rem}
+        .flow-steps .flow-arrow{flex:0 0 auto;min-width:auto;display:grid;place-items:center;padding:0 1px;border:0;background:none;color:#7dd3fc}
+        .command-box{margin:20px 0 0;padding:18px 20px;overflow-x:auto;border-radius:16px;background:#050d1f;border:1px solid rgba(56,189,248,.15);color:#a5f3fc;font-size:.95rem;line-height:1.6}
+        .evidence-panel,.result-panel{margin-top:28px;padding:25px;border-radius:24px}
+        .evidence-panel p{margin:0 0 16px}
+        .evidence-panel img,.evidence-panel video{width:100%;height:auto;display:block;border-radius:16px;background:#030712}
+        .evidence-panel img{max-height:560px;object-fit:contain}
+        .evidence-panel video{max-height:600px}
+        .evidence-panel figure{margin:0}
+        .evidence-panel figcaption{margin-top:12px;color:#8ca0bc;font-size:.9rem;line-height:1.55}
+        .evidence-label{display:inline-block;color:#7dd3fc;font-size:.75rem;letter-spacing:2px;margin-bottom:10px;text-transform:uppercase}
+        .result-panel{border-color:rgba(56,189,248,.18)}
+        .result-panel p{margin:0}
+        .evidence-panel video:focus-visible,a:focus-visible{outline:3px solid #38bdf8;outline-offset:4px}
+        @media(max-width:760px){
+            .practice-page{width:min(1100px,92%);padding:40px 0 70px}
+            .practice-hero-detail{padding:30px 22px}
+            .practice-content-grid{grid-template-columns:1fr}
+            .practice-info-card.full{grid-column:auto}
+            .practice-info-card,.evidence-panel,.result-panel{padding:20px}
+            .flow-steps{flex-direction:column}
+            .flow-steps .flow-arrow{transform:rotate(90deg);padding:2px}
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación de PICOPARK -->
+    <header class="navbar">
+        <div class="logo">
+            <div class="logo-icon">P</div>
+            <div><h1>PICOPARK</h1><span>Tecnologías Emergentes</span></div>
+        </div>
+        <nav class="nav-links" aria-label="Navegación principal">
+            <a href="../index.html#inicio">Inicio</a>
+            <a href="../index.html#practicas" class="active">Prácticas</a>
+            <a href="../index.html#recursos">Recursos</a>
+            <a href="../index.html#equipo">Equipo</a>
+        </nav>
+    </header>
+
+    <main class="practice-page">
+        <a class="practice-back" href="../index.html#practicas">← Volver a prácticas</a>
+
+        <section class="practice-hero-detail">
+            <p class="practice-kicker">PRÁCTICA 05 · TECNOLOGÍAS EMERGENTES</p>
+            <h2>Interacción con objetos y comunicación MQTT en Unity</h2>
+            <p class="practice-intro">
+                En esta práctica desarrollamos una escena en Unity con cinco figuras que podían
+                seleccionarse mediante clics. Al interactuar con ellas, se programó un cambio
+                de color y el envío de un mensaje MQTT. La idea fue conectar lo que hacíamos
+                dentro de Unity con una herramienta externa para comprobar la comunicación.
+            </p>
+            <div class="tech-tags" aria-label="Herramientas utilizadas">
+                <span>Unity</span><span>C#</span><span>Git</span><span>NuGetForUnity</span>
+                <span>MQTTnet</span><span>Mosquitto</span><span>MQTT</span>
+            </div>
+        </section>
+
+        <section class="practice-content-grid" aria-label="Información de la práctica">
+            <article class="practice-info-card">
+                <h3>Objetivo</h3>
+                <p>Vincular la selección de objetos dentro de Unity con la publicación de mensajes
+                   MQTT, utilizando un broker local para observar las acciones desde una terminal.</p>
+            </article>
+            <article class="practice-info-card">
+                <h3>¿Qué aprendimos?</h3>
+                <ul>
+                    <li>Agregar paquetes para trabajar con MQTT en Unity.</li>
+                    <li>Organizar objetos 3D e identificarlos por su nombre.</li>
+                    <li>Programar respuestas a los clics utilizando C#.</li>
+                    <li>Enviar mensajes a un broker Mosquitto y leerlos desde otra herramienta.</li>
+                </ul>
+            </article>
+
+            <article class="practice-info-card full">
+                <h3>Desarrollo de la práctica</h3>
+                <p>
+                    Primero instalamos <strong>Git</strong> para poder agregar paquetes desde
+                    repositorios. Después incorporamos <strong>NuGetForUnity</strong> y la biblioteca
+                    <strong>MQTTnet</strong> en nuestro proyecto. También instalamos y configuramos
+                    <strong>Mosquitto</strong> como broker local para recibir los mensajes.
+                </p>
+                <p>
+                    En el proyecto <strong>PracticaTocarObjeto</strong> creamos cinco figuras:
+                    <strong>Cube</strong>, <strong>Sphere</strong>, <strong>Capsule</strong>,
+                    <strong>Cylinder</strong> y <strong>Quad</strong>. Las agrupamos en
+                    <strong>Pickable Objects</strong>, asignamos colores diferentes y acomodamos
+                    sus posiciones para distinguirlas desde la cámara.
+                </p>
+                <p>
+                    Luego programamos el comportamiento de cada figura: al hacer clic,
+                    se actualiza su color y se publica un mensaje MQTT indicando el objeto
+                    seleccionado. Para tener organizada la conexión, agregamos un objeto
+                    llamado <strong>MQTT</strong> en la jerarquía de Unity.
+                </p>
+                <p>
+                    Finalmente, abrimos una terminal con <strong>mosquitto_sub</strong> y nos
+                    suscribimos al tema <strong>unity/objects/picked</strong> desde
+                    <strong>localhost</strong>. Así comprobamos que la terminal mostraba los
+                    nombres de las figuras seleccionadas durante la ejecución del proyecto.
+                </p>
+            </article>
+
+            <article class="practice-info-card full">
+                <h3>¿Cómo se comunicaron Unity y Mosquitto?</h3>
+                <div class="flow-steps" aria-label="Flujo del mensaje">
+                    <span>Seleccionar figura en Unity</span>
+                    <span class="flow-arrow" aria-hidden="true">→</span>
+                    <span>Cambio de color y publicación MQTT</span>
+                    <span class="flow-arrow" aria-hidden="true">→</span>
+                    <span>Broker Mosquitto (local)</span>
+                    <span class="flow-arrow" aria-hidden="true">→</span>
+                    <span>Mensaje en la terminal</span>
+                </div>
+                <p style="margin-top:18px">Para escuchar los mensajes desde la terminal utilizamos:</p>
+                <pre class="command-box"><code>mosquitto_sub -h localhost -t unity/objects/picked -v</code></pre>
+            </article>
+        </section>
+
+        <section class="evidence-panel" aria-label="Captura de la escena de Unity">
+            <span class="evidence-label">EVIDENCIA 01 · ESCENA</span>
+            <h3>Organización de las figuras en Unity</h3>
+            <p>Vista del editor con las figuras de la escena y los objetos
+               <strong>Pickable Objects</strong> y <strong>MQTT</strong> en la jerarquía.</p>
+            <figure>
+                <img src="../img/practica5_escena.jpeg" alt="Editor de Unity con cinco figuras de colores y jerarquía de Pickable Objects y MQTT" loading="lazy">
+                <figcaption>Escena de Unity utilizada para la interacción con objetos.</figcaption>
+            </figure>
+        </section>
+
+        <section class="evidence-panel" aria-label="Captura de los mensajes recibidos">
+            <span class="evidence-label">EVIDENCIA 02 · MENSAJES MQTT</span>
+            <h3>Mensajes registrados en la terminal</h3>
+            <p>Durante la prueba se observaron publicaciones con los nombres
+               Cube, Capsule, Quad, Sphere y Cylinder en el tema <code>unity/objects/picked</code>.</p>
+            <figure>
+                <img src="../img/practica5_mensajes.jpg" alt="Ventana de Unity y terminal con mensajes MQTT que identifican objetos seleccionados" loading="lazy">
+                <figcaption>Captura obtenida del video de la práctica.</figcaption>
+            </figure>
+        </section>
+
+        <section class="evidence-panel" aria-label="Video de la práctica">
+            <span class="evidence-label">EVIDENCIA 03 · VIDEO</span>
+            <h3>Demostración de la selección de objetos</h3>
+            <p>En el video se puede observar la escena de Unity y, al mismo tiempo,
+               cómo se van registrando las selecciones en la terminal.</p>
+            <video controls preload="metadata" playsinline poster="../img/practica5_mensajes.jpg">
+                <source src="../videos/practica5_mqtt.mp4" type="video/mp4">
+                Tu navegador no puede reproducir el video.
+                <a href="../videos/practica5_mqtt.mp4">Ver el archivo de video</a>.
+            </video>
+        </section>
+
+        <section class="result-panel">
+            <h3>Resultado y conclusión</h3>
+            <p>
+                Logramos que Unity enviara mensajes MQTT cada vez que seleccionábamos una
+                figura y pudimos verlos en la terminal mediante Mosquitto. Esta práctica
+                me ayudó a entender mejor cómo conectar una interacción dentro de una
+                escena virtual con un sistema de comunicación externo, y cómo comprobar
+                que los mensajes realmente se están enviando.
+            </p>
+        </section>
+    </main>
+</body>
+</html>
